@@ -14,14 +14,14 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/admin/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css');?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/admin/vendor/charts/c3charts/c3.css');?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/admin/vendor/fonts/flag-icon-css/flag-icon.min.css');?> ">
-    <title>Curiculum Vitie</title>
+    <title>Curiculum Vitae</title>
 </head>
 <body>
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
     
-        <?php include "navbar.html" ?>
+        <?php include "navbar.php" ?>
         
         <?php include "sidebar.php" ?>
 

@@ -1,6 +1,8 @@
 <?php
 class Biodata_model extends CI_Model {
+    private $_table = 'biodata';
 
+    public $id;
     public function rules()
     {
         return[
@@ -51,9 +53,13 @@ class Biodata_model extends CI_Model {
     {
         return $this->db->get('biodata')->result();
     }
-    public function getById($id)
+    public function getAllBiodata1()
     {
-        return $this->db->get_where('biodata', ["id" => $id])->row();
+        return $this->db->get('biodata')->row_array();
+    }
+    public function getById($biodata_id)
+    {
+        return $this->db->get_where('biodata', ["id" => $biodata_id])->row();
     }
     
     public function tambah(){
@@ -102,14 +108,15 @@ class Biodata_model extends CI_Model {
     private function _uploadImage()
     {
         $post                           = $this->input->post();
-        $config['upload_path']          = 'assets/images/biodata/';
+        $config['upload_path']          = './assets/images/biodata/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['file_name']            = $post['id'];
+        $config['file_name']            = $this->id;
         $config['overwrite']			= true;
         $config['max_size']             = 1024; // 1MB
         // $config['max_width']            = 1024;
         // $config['max_height']           = 768;
         $this->load->library('upload', $config);
+        
         if ($this->upload->do_upload('foto')) {
             return $this->upload->data("file_name");
         }

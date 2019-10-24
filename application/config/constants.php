@@ -1,5 +1,5 @@
 <?php
-define('SITE_NAME','Curiculum Vitie');
+define('SITE_NAME','Curiculum Vitae');
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*

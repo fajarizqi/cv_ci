@@ -1,8 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
+
 class Auth extends CI_Model
 {
     private $_table = "user";
     public function login()
+
     {
         $post = $this->input->post();
         $this->db->select('user.id, user.username, user.pass');
@@ -36,6 +38,7 @@ class Auth extends CI_Model
             $this->nama         = htmlspecialchars($post["nama"]);
             $this->email        = htmlspecialchars($post["email"]);
             $this->password     = password_hash($post["password"], PASSWORD_DEFAULT);
+            
             $tambah_member = $this->db->insert($this->_table, $this);
             if ($tambah_member) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Pendaftaran Berhasil, Silahkan Login</div>');

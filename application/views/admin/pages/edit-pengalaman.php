@@ -22,7 +22,7 @@
     <!-- main wrapper -->
     <!-- ============================================================== -->
     
-        <?php include "navbar.html" ?>
+        <?php include "navbar.php" ?>
         
         <?php include "sidebar.php" ?>
 

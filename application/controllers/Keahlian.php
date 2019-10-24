@@ -4,13 +4,15 @@ class Keahlian extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->model("biodata_model");
         $this->load->model("keahlian_model");
         $this->load->library('form_validation');
     }
     
 	public function index()
 	{
-        $data['keahlian']= $this->keahlian_model->getAllKeahlian();
+		$data['keahlian']= $this->keahlian_model->getAllKeahlian();
+		$data['navbar']= $this->biodata_model->getAllBiodata1();
         // var_dump($data);
         $this->load->view('admin/pages/keahlian', $data);
     }
@@ -29,6 +31,7 @@ class Keahlian extends CI_Controller {
     
     public function edit($id = null){
 		$data = $this->keahlian_model;
+		$data1 = $this->biodata_model;
 		$validation = $this->form_validation;
 		$validation->set_rules($data->rules());
 
@@ -41,6 +44,7 @@ class Keahlian extends CI_Controller {
 		if(!$data->keahlian) show_404();
 
 		// var_dump($data);
+		$data->navbar = $data->getAllBiodata1();
 		$this->load->view("admin/pages/edit-keahlian", $data);
 	}
 

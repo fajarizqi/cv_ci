@@ -11,6 +11,7 @@ class Admin extends CI_Controller {
 	public function biodata()
 	{
 		$data['biodata']= $this->biodata_model->getAllBiodata();
+		$data['navbar']= $this->biodata_model->getAllBiodata1();
 		// var_dump($data);`
 		$this->load->view('admin/pages/biodata', $data);
 	}
@@ -41,7 +42,9 @@ class Admin extends CI_Controller {
 		$data->biodata = $data->getById($id);
 		if(!$data->biodata) show_404();
 
+		$data->navbar = $data->getAllBiodata1();
 		// var_dump($data);
+		
 		$this->load->view("admin/pages/edit-biodata", $data);
 	}
 

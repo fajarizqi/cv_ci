@@ -4,13 +4,15 @@ class Pendidikan extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->model("biodata_model");
         $this->load->model("pendidikan_model");
         $this->load->library('form_validation');
     }
     
 	public function index()
 	{
-        $data['pendidikan']= $this->pendidikan_model->getAllPendidikan();
+		$data['pendidikan']= $this->pendidikan_model->getAllPendidikan();
+		$data['navbar']= $this->biodata_model->getAllBiodata1();
         // var_dump($data);
         $this->load->view('admin/pages/pendidikan', $data);
     }
@@ -29,6 +31,7 @@ class Pendidikan extends CI_Controller {
     
     public function edit($id = null){
 		$data = $this->pendidikan_model;
+		$data1 = $this->biodata_model;
 		$validation = $this->form_validation;
 		$validation->set_rules($data->rules());
 
@@ -41,6 +44,7 @@ class Pendidikan extends CI_Controller {
 		if(!$data->pendidikan) show_404();
 
 		// var_dump($data);
+		$data->navbar = $data1->getAllBiodata1();
 		$this->load->view("admin/pages/edit-pendidikan", $data);
 	}
 
