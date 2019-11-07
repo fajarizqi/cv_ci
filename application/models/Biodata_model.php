@@ -9,7 +9,7 @@ class Biodata_model extends CI_Model {
         ['field' => 'nama_lengkap',
         'label' => 'Nama Lengkap',
         'rules' => 'required'],
-
+        
         ['field'=> 'nama_panggilan',
         'label' => 'Nama Panggilan',
         'rules' => 'required'],
@@ -34,19 +34,15 @@ class Biodata_model extends CI_Model {
         'label' => 'Email',
         'rules' => 'required'],
 
-        ['field'=> 'alamat',
-        'label' => 'Alamat',
+        ['field'=> 'agama',
+        'label' => 'Agama',
         'rules' => 'required'],
-
-        ['field'=> 'foto',
-        'label' => 'Foto',
-        'rules' => 'required'],
-        
 
         ['field'=> 'resume',
         'label' => 'Resume',
         'rules' => 'required']
         ];
+        
     }
 
     public function getAllBiodata()
@@ -109,10 +105,10 @@ class Biodata_model extends CI_Model {
     {
         $post                           = $this->input->post();
         $config['upload_path']          = './assets/images/biodata/';
-        $config['allowed_types']        = 'gif|jpg|png';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
         $config['file_name']            = $this->id;
         $config['overwrite']			= true;
-        $config['max_size']             = 1024; // 1MB
+        $config['max_size']             = 2048; // 2MB
         // $config['max_width']            = 1024;
         // $config['max_height']           = 768;
         $this->load->library('upload', $config);
@@ -121,7 +117,7 @@ class Biodata_model extends CI_Model {
             return $this->upload->data("file_name");
         }
         
-        return "default.jpg";
+        // return "default.jpg";
     }
 }
 ?>

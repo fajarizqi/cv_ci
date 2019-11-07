@@ -34,6 +34,7 @@ class Admin extends CI_Controller {
 		$validation->set_rules($data->rules());
 
 		if($validation->run()){
+			echo "valid";
 			$data->edit();
 			$this->session->set_flashdata('succes', 'data sukses diunggah');
 			var_dump($data);
@@ -44,7 +45,7 @@ class Admin extends CI_Controller {
 
 		$data->navbar = $data->getAllBiodata1();
 		// var_dump($data);
-		
+		echo "admin/simpan";
 		$this->load->view("admin/pages/edit-biodata", $data);
 	}
 

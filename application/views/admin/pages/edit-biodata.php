@@ -47,75 +47,75 @@
 							<div class="card-header">
 								<h5 style="display:inline-block; ">Edit Biodata</h5>
 							</div>	
-							<!-- form start -->
+							<!-- form start -->     
                             <div class="container mt-2 mb-3">
-                                <form action="<?= base_url('admin/edit');?>" method="post">
+                                <form action="<?= base_url('admin/edit');?>" method="post" enctype="multipart/form-data">
                                     <input name="id" type="hidden" class="form-control"  value="<?php echo $biodata->id ?>">
                                     <div class="form-group">
-                                        <label>Nama Lengkap</label>
+                                        <label for="Nama Lengkap">Nama Lengkap</label>
                                         <input name="nama_lengkap" type="text" class="form-control"  value="<?php echo $biodata->nama ?>">
                                         <div class="invalid-feedback">
                                             <?php echo form_error('nama_lengkap') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Nama Panggilan</label>
+                                        <label for="Nama Panggilan">Nama Panggilan</label>
                                         <input name="nama_panggilan" type="text" class="form-control"  value="<?php echo $biodata->nama_pendek ?>">
                                         <div class="invalid-feedback">
                                             <?php echo form_error('nama_panggilan') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>TTL</label>
+                                        <label for="TTL">TTL</label>
                                         <input name="ttl" type="text" class="form-control" value="<?php echo $biodata->ttl ?>">
                                         <div class="invalid-feedback">
                                             <?php echo form_error('ttl') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Jenis Kelamin</label>
+                                        <label for="Jenis Kelamin">Jenis Kelamin</label>
                                         <input name="jk" type="text" class="form-control"  value="<?php echo $biodata->jenis_kelamin ?>">
                                         <div class="invalid-feedback">
                                             <?php echo form_error('jk') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>NO. Telp</label>
+                                        <label for="NO. Telp">NO. Telp</label>
                                         <input name="telp" type="text" class="form-control"  value="<?php echo $biodata->telpon ?>">
                                         <div class="invalid-feedback">
                                             <?php echo form_error('telp') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Alamat</label>
+                                        <label for="Alamat">Alamat</label>
                                         <input name="alamat" type="text" class="form-control"  value="<?php echo $biodata->alamat ?>">
                                         <div class="invalid-feedback">
                                             <?php echo form_error('alamat') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Agama</label>
+                                        <label for="Agama">Agama</label>
                                         <input name="agama" type="text" class="form-control"  value="<?php echo $biodata->agama ?>">
                                         <div class="invalid-feedback">
                                             <?php echo form_error('agama') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>email</label>
+                                        <label for="Email">email</label>
                                         <input name="email" type="email" class="form-control"  value="<?php echo $biodata->email ?>">
                                         <div class="invalid-feedback">
                                             <?php echo form_error('email') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Resume</label>
+                                        <label for="Resume">Resume</label>
                                         <textarea name="resume"class="form-control" ><?php echo $biodata->resume ?></textarea>
                                         <div class="invalid-feedback">
                                             <?php echo form_error('resume') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Foto</label>
+                                        <label for="Foto">Foto</label>
                                         <input type="file" name="foto" class="form-control">
                                         <input type="hidden" name="old_image" value="<?php echo $biodata->foto ?>"/>
                                         <label class="custom-file-label" for="foto">Choose file</label>
